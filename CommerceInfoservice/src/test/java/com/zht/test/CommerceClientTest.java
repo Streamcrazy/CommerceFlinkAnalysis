@@ -2,9 +2,7 @@ package com.zht.test;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * @Author : Zht
@@ -16,8 +14,8 @@ import java.net.URLConnection;
 public class CommerceClientTest {
 
     public static void main(String[] args) {
-        String message = "";
-        String address = "";
+        String message = "test";
+        String address = "http://localhost:6097/commerceInfoColService/webInfoColService";
         try {
             URL url = new URL(address);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -33,7 +31,7 @@ public class CommerceClientTest {
             OutputStream out = conn.getOutputStream();
             BufferedOutputStream outputStream = new BufferedOutputStream(out);
             outputStream.write(message.getBytes());
-            out.flush();
+            outputStream.flush();
 
             String temp = "";
             InputStream in = conn.getInputStream();

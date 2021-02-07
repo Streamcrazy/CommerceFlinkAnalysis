@@ -23,17 +23,18 @@ public class CommerceInfoColService {
 
     @PostMapping("/webInfoColService")
     public void webInfoColService(@RequestBody String jsonString, HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("Hi, welcome");
+        System.out.println("Hi, welcome " + jsonString);
 //        业务开始
 
 //        业务结束
         PrintWriter writer = getWriter(response);
+        response.setStatus(HttpStatus.OK.value());
         writer.write("sucess");
         closePrintWriter(writer);
     }
 
     private PrintWriter getWriter(HttpServletResponse response) {
-        response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("utf-8");
         response.setContentType("application/json");
         OutputStream out = null;
         PrintWriter printWriter = null;
